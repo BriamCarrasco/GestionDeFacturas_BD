@@ -4,10 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.exp2_s6_briam_carrasco.gestionfacturasbd.model.Emisor;
 import com.exp2_s6_briam_carrasco.gestionfacturasbd.repository.EmisorRepository;
 
+
+@Service
 public class EmisorServiceImpl implements EmisorService{
     
     @Autowired
