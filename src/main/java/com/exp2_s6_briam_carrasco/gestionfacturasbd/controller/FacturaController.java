@@ -18,7 +18,7 @@ import com.exp2_s6_briam_carrasco.gestionfacturasbd.model.Factura;
 import com.exp2_s6_briam_carrasco.gestionfacturasbd.service.FacturaService;
 
 @RestController
-@RequestMapping("/factura")
+@RequestMapping("/facturas")
 @CrossOrigin(origins = "*")
 public class FacturaController {
 
