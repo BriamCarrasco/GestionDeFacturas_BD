@@ -6,14 +6,18 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+import com.exp2_s6_briam_carrasco.gestionfacturasbd.model.DetalleFactura;
 import com.exp2_s6_briam_carrasco.gestionfacturasbd.model.Factura;
 import com.exp2_s6_briam_carrasco.gestionfacturasbd.repository.FacturaRepository;
+
 
 @Service
 public class FacturaServiceImpl implements FacturaService {
 
     @Autowired
     private FacturaRepository facturaRepository;
+
 
     @Override
     public List<Factura> getAllFacturas() {
@@ -25,10 +29,24 @@ public class FacturaServiceImpl implements FacturaService {
         return facturaRepository.findById(id);
     }
 
+
+    
+    //@Override
+    //public Factura createFactura(Factura factura) {
+    //    return facturaRepository.save(factura);
+    //}
+
     @Override
-    public Factura createFactura(Factura factura) {
-        return facturaRepository.save(factura);
+public Factura createFactura(Factura factura) {
+    // Asigna la factura a cada detalle
+    if (factura.getDetalles() != null) {
+        for (DetalleFactura detalle : factura.getDetalles()) {
+            detalle.setFactura(factura); // Establece la relación bidireccional
+        }
     }
+    return facturaRepository.save(factura);
+}
+
 
     @Override
     public void deleteFactura(Long id) {

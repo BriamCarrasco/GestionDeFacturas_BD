@@ -1,5 +1,7 @@
 package com.exp2_s6_briam_carrasco.gestionfacturasbd.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,8 +28,9 @@ public class DetalleFactura {
     @Column(name = "SUBTOTAL")
     private Double subtotal;
 
-        @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "factura_id_factura")
+    @JsonBackReference
     private Factura factura;
 
     @ManyToOne

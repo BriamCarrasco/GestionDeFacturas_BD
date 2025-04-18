@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -41,7 +43,9 @@ public class Factura {
     @JoinColumn(name = "EMISOR_ID_EMISOR")
     private Emisor emisor;
 
+
     @OneToMany(mappedBy = "factura", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<DetalleFactura> detalles = new ArrayList<>();
 
     public Factura() {
