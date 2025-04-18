@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.exp2_s6_briam_carrasco.gestionfacturasbd.model.Cliente;
 import com.exp2_s6_briam_carrasco.gestionfacturasbd.service.ClienteService;
+
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -37,6 +40,8 @@ public class ClienteController {
         return clienteService.getClienteById(id);
     }
 
+
+    
     @PostMapping
     public Cliente createCliente(@RequestBody Cliente cliente) {
         return clienteService.createCliente(cliente);

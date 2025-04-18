@@ -1,11 +1,14 @@
 package com.exp2_s6_briam_carrasco.gestionfacturasbd.model;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "CLIENTE")
@@ -16,15 +19,26 @@ public class Cliente {
     @Column(name = "ID_CLIENTE")
     private Long idIdCliente;
 
+    @NotNull(message = "El nombre del cliente no puede estar vacío")
     @Column(name = "NOMBRE_CLIENTE")
     private String nombreCliente;
 
+    
+    @Pattern(
+    regexp = "^\\d{7,8}-[\\dkK]$",
+    message = "El RUT debe tener el formato 12345678-5")
+    @NotNull(message = "El RUT del cliente no puede estar vacío")
     @Column(name = "RUT_CLIENTE")
     private String rutCliente;
 
+    @NotNull
     @Column(name = "DIRECCION_CLIENTE")
     private String direccionCliente;
 
+    @NotNull
+    @Pattern(
+    regexp = "^\\+569\\s\\d{8}$",
+    message = "El número debe tener el formato +569 12345678")
     @Column(name = "TELEFONO_CLIENTE")
     private String telefonoCliente;
 
