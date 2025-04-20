@@ -35,11 +35,6 @@ public class EmisorServiceImpl implements EmisorService{
     }
 
 
-    //@Override
-    //public Emisor createEmisor(Emisor emisor) {
-    //    return emisorRepository.save(emisor);
-    //}
-
     @Override
     public void deleteEmisor(Long id) {
         emisorRepository.deleteById(id);
