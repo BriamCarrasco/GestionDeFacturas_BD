@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
@@ -16,6 +18,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "FACTURA")
@@ -26,19 +30,26 @@ public class Factura {
     @Column(name = "ID_FACTURA")
     private Long idFactura;
 
+    @Size(min=4)
+    @NotNull
     @Column(name = "NUM_FACTURA")
     private Long numFactura;
     
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "FECHA_EMISION")
     private LocalDate fechaEmision;
 
+    @NotNull
     @Column(name = "TOTAL_FACTURA")
     private Double totalFactura;
 
+    @NotNull(message= "El cliente no puede ser nulo")
     @ManyToOne
     @JoinColumn(name = "CLIENTE_ID_CLIENTE")
     private Cliente cliente;
 
+    @NotNull(message= "El emisor no puede ser nulo")
     @ManyToOne
     @JoinColumn(name = "EMISOR_ID_EMISOR")
     private Emisor emisor;
