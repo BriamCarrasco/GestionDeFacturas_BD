@@ -1,11 +1,15 @@
 package com.exp2_s6_briam_carrasco.gestionfacturasbd.model;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "EMISOR")
@@ -16,12 +20,18 @@ public class Emisor {
     @Column(name = "ID_EMISOR")
     private Long idEmisor;
 
+    @NotNull(message = "El RUT no puede ser nulo")
     @Column(name = "RUT_EMISOR")
     private String rutEmisor;   
 
+    @NotNull(message =  "El nombre no puede ser nulo")
     @Column(name = "NOMBRE_EMISOR")
     private String nombreEmisor;
 
+    @NotNull (message = "La dirección no puede ser nula")
+    @Size(max = 100, min=15, message = "La dirección debe tener entre 15 y 100 caracteres")
+    @Pattern(regexp = "^[A-Za-zÁÉÍÓÚáéíóúÑñÜü0-9\\s]+ #\\d+$",
+    message = "La dirección debe tener el formato Calle #Número")
     @Column(name = "DIRECCION_EMISOR")
     private String direccionEmisor;
 
