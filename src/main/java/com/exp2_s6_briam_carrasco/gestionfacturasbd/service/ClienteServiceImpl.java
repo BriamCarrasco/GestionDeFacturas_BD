@@ -26,9 +26,20 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
+    public Cliente createCliente(Cliente cliente){
+        if (clienteRepository.existsByRutCliente(cliente.getRutCliente())){
+            throw new IllegalArgumentException("El RUT ya existe");
+        }
+        return clienteRepository.save(cliente);
+    }
+
+    /* 
+    @Override
     public Cliente createCliente(Cliente cliente) {
         return clienteRepository.save(cliente);
     }
+     */   
+
 
     @Override
     public void deleteCliente(Long id) {
