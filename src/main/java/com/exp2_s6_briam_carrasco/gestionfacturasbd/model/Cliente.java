@@ -1,6 +1,8 @@
 package com.exp2_s6_briam_carrasco.gestionfacturasbd.model;
 
 
+import org.hibernate.validator.constraints.UniqueElements;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
