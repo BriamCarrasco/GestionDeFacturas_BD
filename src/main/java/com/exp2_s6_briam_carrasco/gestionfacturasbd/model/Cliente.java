@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "CLIENTE")
@@ -19,7 +20,7 @@ public class Cliente {
     @Column(name = "ID_CLIENTE")
     private Long idIdCliente;
 
-    @NotNull(message = "El nombre del cliente no puede estar vacío")
+    @NotNull
     @Column(name = "NOMBRE_CLIENTE")
     private String nombreCliente;
 
@@ -27,7 +28,8 @@ public class Cliente {
     @Pattern(
     regexp = "^\\d{7,8}-[\\dkK]$",
     message = "El RUT debe tener el formato 12345678-5")
-    @NotNull(message = "El RUT del cliente no puede estar vacío")
+    @NotNull
+    @Size(max = 12, min=9, message = "El RUT debe tener entre 9 y 12 caracteres")
     @Column(name = "RUT_CLIENTE")
     private String rutCliente;
 
