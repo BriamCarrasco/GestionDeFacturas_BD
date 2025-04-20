@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "TIPO_ITEM")
@@ -15,9 +16,11 @@ public class TipoItem {
     @Column(name = "ID_TIPO_ITEM")
     private Long idTipo;
 
+    @NotNull
     @Column(name = "NOMBRE_TIPO")
     private String nombreTipo;
 
+    @NotNull
     @Column(name = "DESCRIPCION_TIPO")
     private String descripcionTipo;
 

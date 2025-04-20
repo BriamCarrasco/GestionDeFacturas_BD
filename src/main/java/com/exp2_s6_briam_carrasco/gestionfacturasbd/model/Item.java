@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "ITEM")
@@ -18,12 +19,15 @@ public class Item {
     @Column(name = "ID_ITEM")
     private Long idItem;
 
+    @NotNull
     @Column(name = "NOMBRE_ITEM")
     private String nombreItem;
 
+    @NotNull
     @Column(name = "DESCRIPCION_ITEM")
     private String descripcionItem;
     
+    @NotNull
     @Column(name = "PRECIO_ITEM")
     private Double precioItem;
 

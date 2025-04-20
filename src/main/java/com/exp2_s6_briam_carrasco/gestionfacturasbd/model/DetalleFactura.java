@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "DETALLE_FACTURA")
@@ -19,12 +20,15 @@ public class DetalleFactura {
     @Column(name = "ID_DET_FACTURA")
     private Long idDetalleFactura;
 
+    @NotNull
     @Column(name = "CANTIDAD")
     private Long cantidad;
 
+    @NotNull
     @Column(name = "PRECIO_UNITARIO")
     private Double precioUnitario;
 
+    @NotNull
     @Column(name = "SUBTOTAL")
     private Double subtotal;
 
