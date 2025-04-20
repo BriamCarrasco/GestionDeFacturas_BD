@@ -27,9 +27,18 @@ public class EmisorServiceImpl implements EmisorService{
     }
 
     @Override
-    public Emisor createEmisor(Emisor emisor) {
+    public Emisor createEmisor(Emisor emisor){
+        if (emisorRepository.existsByRutEmisor(emisor.getRutEmisor())) {
+            throw new IllegalArgumentException("El RUT ya existe");
+        }
         return emisorRepository.save(emisor);
     }
+
+
+    //@Override
+    //public Emisor createEmisor(Emisor emisor) {
+    //    return emisorRepository.save(emisor);
+    //}
 
     @Override
     public void deleteEmisor(Long id) {
