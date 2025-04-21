@@ -19,7 +19,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "FACTURA")
@@ -30,7 +29,6 @@ public class Factura {
     @Column(name = "ID_FACTURA")
     private Long idFactura;
 
-    @Size(min=4)
     @NotNull
     @Column(name = "NUM_FACTURA")
     private Long numFactura;
