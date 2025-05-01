@@ -3,9 +3,10 @@ package com.exp2_s6_briam_carrasco.gestionfacturasbd.controller;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import org.hamcrest.Matchers;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,14 @@ public class ClienteControllerTest {
         cliente2.setTelefonoCliente("+569 87654321"); 
     }
 
+    @AfterEach
+    public void tearDown() {
+        cliente1 = null;
+        cliente2 = null;
+    }
+    
+
+
     @Test
     public void getAllClientes() throws Exception
     {
@@ -65,6 +74,16 @@ public class ClienteControllerTest {
             .andExpect(MockMvcResultMatchers.jsonPath("$._embedded.clienteList[1].telefonoCliente").value("+569 87654321"));
 
     }
-    
+
+    @Test
+    public void getClienteById() throws Exception {
+        when(clienteServiceMock.getClienteById(1L)).thenReturn(Optional.of(cliente1));
+        mockMvc.perform(MockMvcRequestBuilders.get("/clientes/{id}", 1L))
+            .andExpect(MockMvcResultMatchers.status().isOk())
+            .andExpect(MockMvcResultMatchers.jsonPath("$.nombreCliente").value("Violeta Parra"))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.rutCliente").value("11111111-1"))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.direccionCliente").value("Calle Falsa 123"))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.telefonoCliente").value("+569 12345678"));
+    }
     
 }
