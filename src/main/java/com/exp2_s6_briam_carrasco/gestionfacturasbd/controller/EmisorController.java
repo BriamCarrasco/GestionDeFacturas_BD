@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.exp2_s6_briam_carrasco.gestionfacturasbd.model.Cliente;
 import com.exp2_s6_briam_carrasco.gestionfacturasbd.model.Emisor;
 import com.exp2_s6_briam_carrasco.gestionfacturasbd.service.EmisorService;
 
