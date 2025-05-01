@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.hateoas.RepresentationModel;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -22,7 +23,7 @@ import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "FACTURA")
-public class Factura {
+public class Factura extends RepresentationModel<Factura> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
