@@ -1,6 +1,5 @@
 package com.exp2_s6_briam_carrasco.gestionfacturasbd.controller;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
