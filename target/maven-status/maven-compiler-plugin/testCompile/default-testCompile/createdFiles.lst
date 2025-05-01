@@ -1,0 +1,6 @@
+com\exp2_s6_briam_carrasco\gestionfacturasbd\repository\ClienteRepositoryTest.class
+com\exp2_s6_briam_carrasco\gestionfacturasbd\repository\EmisorRepositoryTest.class
+com\exp2_s6_briam_carrasco\gestionfacturasbd\service\ClienteServiceTest.class
+com\exp2_s6_briam_carrasco\gestionfacturasbd\controller\ClienteControllerTest.class
+com\exp2_s6_briam_carrasco\gestionfacturasbd\service\EmisorServiceTest.class
+com\exp2_s6_briam_carrasco\gestionfacturasbd\GestionfacturasbdApplicationTests.class
