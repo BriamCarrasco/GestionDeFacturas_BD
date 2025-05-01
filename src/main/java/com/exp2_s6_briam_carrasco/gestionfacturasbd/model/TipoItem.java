@@ -1,5 +1,7 @@
 package com.exp2_s6_briam_carrasco.gestionfacturasbd.model;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,7 +12,7 @@ import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "TIPO_ITEM")
-public class TipoItem {
+public class TipoItem extends RepresentationModel<TipoItem> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_TIPO_ITEM")
