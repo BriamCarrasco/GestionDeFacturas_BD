@@ -1,5 +1,7 @@
 package com.exp2_s6_briam_carrasco.gestionfacturasbd.model;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
@@ -14,7 +16,7 @@ import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "DETALLE_FACTURA")
-public class DetalleFactura {
+public class DetalleFactura extends RepresentationModel<DetalleFactura> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_DET_FACTURA")
